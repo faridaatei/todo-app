@@ -2,9 +2,11 @@
 <html>
 <head>
 	<title>Todo App</title>
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<style type="text/css">
+
 	body{background-color: #ccc;
 		padding-top: 50px
 	}
@@ -14,39 +16,67 @@
 			padding: 25px;
 		}
 	</style>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
-	<div class="container">
+	<div class="container" id="app">
+
 		<form method="post">
+
 			<div class="row">
+
+
 				<div class="col">
+
 					<div class="form-group">
+					<input v-model= "item" type="text" name ="taskName" class="form-control">
 						<label>Task Name</label>
-						<input type="text" name ="taskName" class="form-control">
+
+						
+						
+
 					</div>
+
 				</div>
+
 				<div class="col">
+
 					<div class="form-group">
-						<label>due date</label>
+
+						
+
 						<input type="date" name="taskDate" class="form-control">
+
+						<label>due date</label>
 					</div>
 				</div>
+
 			</div>
 
-			<button type="submit" class="btn btn-primary btn-block">Add task</button>
+
+
+			<button v-on:click ="addTodo" type="button" class="btn-primary btn-block">Add Task</button>
 		</form>
+
 		<hr>
+
 		<h3>Todo Items</h3>
 
-		<ul class="list-group">
-			<li class="list-group-item d-flex justify-content-between align-items-center">
-			assignment
-			 <span class="badge badge-primary badge-pill">4hrs</span>
-			 </li>
-		 </ul>
+
+		<ul>
+
+			<li v-for="todo in todos">{{ todo}}</li>
+
+		</ul>
+
 	 </div>
+
 	 <script src="app.js"></script>
+
  </body>
+
  </html>
 
 
